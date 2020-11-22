@@ -1,24 +1,45 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+const books = [
+  {
+    img:
+      'https://images-eu.ssl-images-amazon.com/images/I/91Cz5v-GSjL._AC_UL200_SR200,200_.jpg',
+    title: 'First Title',
+    auther: 'First Auther',
+  },
+
+  {
+    img:
+      'https://images-eu.ssl-images-amazon.com/images/I/91Cz5v-GSjL._AC_UL200_SR200,200_.jpg',
+    title: 'Second Title',
+    auther: 'Second Auther',
+  },
+
+  {
+    img:
+      'https://images-eu.ssl-images-amazon.com/images/I/91Cz5v-GSjL._AC_UL200_SR200,200_.jpg',
+    title: 'Third Title',
+    auther: 'Third Auther',
+  },
+]
 const BookList = () => {
   return (
     <div>
-      <Book />
+      {books.map((book) => {
+        return <Book singleBook={book}></Book>
+      })}
     </div>
   )
 }
 
-const Book = () => {
-  const title = 'Book Name'
+const Book = (props) => {
+  const { img, title, auther } = props.singleBook
   return (
     <div>
-      <img
-        src='https://images-eu.ssl-images-amazon.com/images/I/91Cz5v-GSjL._AC_UL200_SR200,200_.jpg'
-        alt=''
-      ></img>
+      <img src={img} alt=''></img>
       <h1>{title}</h1>
-      <h4>Auther Name</h4>
+      <h4>{auther}</h4>
     </div>
   )
 }
